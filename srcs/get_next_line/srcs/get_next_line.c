@@ -6,25 +6,32 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:47:52 by kinamura          #+#    #+#             */
-/*   Updated: 2024/06/29 07:11:35 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/07/03 11:36:15 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_stradd(char *s1, char *s2)
+char	*ft_memadd(char *s1, const char *s2, size_t size)
 {
 	char	*str;
+	size_t	len;
 
+	if (size == 0)
+		return (s1);
 	if (!s1)
-		s1 = ft_strdup("\0");
-	if (!s1 || !s2)
-		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+		len = 0;
+	else
+		len = ft_strlen(s1);
+	str = (char *)malloc(sizeof(char) * (len + size + 1));
 	if (!str)
+	{
+		free(s1);
 		return (NULL);
-	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
-	ft_strlcpy(&str[ft_strlen(s1)], s2, ft_strlen(s2) + 1);
+	}
+	ft_memcpy(str, (const char *)s1, len);
+	ft_memcpy(&str[len], s2, size);
+	str[len + size] = '\0';
 	free(s1);
 	return (str);
 }
@@ -46,7 +53,8 @@ char	*ft_get_line(char *str)
 	buf = (char *)malloc(sizeof(char) * (index + n_flag + 1));
 	if (!buf)
 		return (NULL);
-	ft_strlcpy(buf, str, index + n_flag + 1);
+	ft_memcpy(buf, str, index + n_flag);
+	buf[index + n_flag] = '\0';
 	return (buf);
 }
 
@@ -63,38 +71,41 @@ char	*ft_next_str(char *str)
 		free(str);
 		return (NULL);
 	}
-	buf = (char *)malloc(sizeof(char) * (ft_strlen(str) - index + 1));
+	buf = (char *)malloc(sizeof(char) * (ft_strlen(str) - index));
 	if (!buf)
 	{
 		free(str);
 		return (NULL);
 	}
 	index++;
-	ft_strlcpy(buf, &str[index], (ft_strlen(str) - index + 1));
+	ft_memcpy(buf, &str[index], (ft_strlen(str) - index));
+	buf[ft_strlen(str) - index] = '\0';
 	free(str);
 	return (buf);
 }
 
 char	*ft_read_file(int fd, char *str)
 {
-	char    	*buf;
-	ssize_t		size;
+	char	*buf;
+	ssize_t	size;
 
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buf = malloc(sizeof(char) * BUFFER_SIZE);
 	if (!buf)
 		return (NULL);
 	size = 1;
-	while (!ft_strchr(str, '\n') && size != 0)
+	while (size != 0)
 	{
 		size = read(fd, buf, BUFFER_SIZE);
 		if (size < 0)
+			return (free(buf), free(str), NULL);
+		str = ft_memadd(str, (const char *)buf, size);
+		if (!str)
+			return (free(buf), NULL);
+		if (str)
 		{
-			free(buf);
-			free(str);
-			return (NULL);
+			if (ft_strchr(str, '\n'))
+				break ;
 		}
-		buf[size] = '\0';
-		str = ft_stradd(str, buf);
 	}
 	free(buf);
 	return (str);
@@ -105,7 +116,7 @@ char	*get_next_line(int fd)
 	static char	*str[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || OPEN_MAX < fd)
 		return (NULL);
 	str[fd] = ft_read_file(fd, str[fd]);
 	if (!str[fd])
@@ -114,6 +125,7 @@ char	*get_next_line(int fd)
 	str[fd] = ft_next_str(str[fd]);
 	return (line);
 }
+
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include <string.h>
@@ -123,7 +135,7 @@ char	*get_next_line(int fd)
 //     char *line;
 //     int fd;
 //     int i = 1;
-//     fd = open("test/test.txt", O_RDONLY);
+//     fd = open("test", O_RDONLY);
 //     while (42)
 //     {
 //         printf("%d:",i);
