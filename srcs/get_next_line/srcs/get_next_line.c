@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <limits.h>
 
 char	*ft_memadd(char *s1, const char *s2, size_t size)
 {
@@ -113,16 +114,16 @@ char	*ft_read_file(int fd, char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str[OPEN_MAX];
+	static char	*str;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || OPEN_MAX < fd)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	str[fd] = ft_read_file(fd, str[fd]);
-	if (!str[fd])
+	str = ft_read_file(fd, str);
+	if (!str)
 		return (NULL);
-	line = ft_get_line(str[fd]);
-	str[fd] = ft_next_str(str[fd]);
+	line = ft_get_line(str);
+	str = ft_next_str(str);
 	return (line);
 }
 

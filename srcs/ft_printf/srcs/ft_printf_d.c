@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf_d.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/21 03:04:42 by kinamura          #+#    #+#             */
+/*   Updated: 2024/06/21 03:05:16 by kinamura         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int    ft_printf_d(t_args *args)
+int	ft_printf_d(t_args *args)
 {
-    int num;
-    int ret;
+	int	num;
+	int	ret;
 
-    ret = 0;
-    num = va_arg(args->ap, int);
-    ret += ft_putnbr_base(num, BASE_10);
-    return (ret);
+	ret = 0;
+	num = va_arg(args->ap, int);
+	ret += ft_putnbr_base(num, BASE_10);
+	return (ret);
 }
