@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:31:55 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/29 20:57:24 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:39:51 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

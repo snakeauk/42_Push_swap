@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 23:39:24 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/30 02:36:52 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:40:30 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 static void	contents_free(char **result, size_t count)
 {

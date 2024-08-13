@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 22:09:42 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/22 22:09:55 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:39:30 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

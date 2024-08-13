@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 22:06:37 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/28 16:04:23 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:38:49 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

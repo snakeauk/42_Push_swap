@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 13:46:18 by kinamura          #+#    #+#             */
-/*   Updated: 2024/07/02 02:51:20 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:53:40 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 static int	ft_isspace(int c)
 {

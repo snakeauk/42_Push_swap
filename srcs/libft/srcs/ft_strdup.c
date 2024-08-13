@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 19:32:17 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/24 21:27:04 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:40:43 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 char	*ft_strdup(const char *s1)
 {

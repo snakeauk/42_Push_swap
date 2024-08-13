@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 03:04:51 by kinamura          #+#    #+#             */
-/*   Updated: 2024/06/21 03:05:16 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:50:41 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../../../includes/ft_printf.h"
 
 int	ft_printf_p(t_args *args)
 {

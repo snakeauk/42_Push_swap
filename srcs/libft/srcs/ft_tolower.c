@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:30:25 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/22 22:19:38 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:41:57 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 int	ft_tolower(int c)
 {

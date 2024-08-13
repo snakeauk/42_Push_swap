@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:33:59 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/29 20:50:55 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:39:35 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
