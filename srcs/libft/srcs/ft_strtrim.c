@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 22:48:28 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/30 00:39:40 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:41:45 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

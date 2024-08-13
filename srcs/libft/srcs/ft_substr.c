@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:31:57 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/28 11:10:40 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:41:50 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

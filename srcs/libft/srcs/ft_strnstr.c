@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 18:13:54 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/29 12:43:26 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:41:32 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

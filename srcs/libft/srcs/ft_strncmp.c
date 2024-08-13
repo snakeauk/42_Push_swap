@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:10:11 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/22 22:16:06 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:41:26 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

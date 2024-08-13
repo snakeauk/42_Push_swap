@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:15:11 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/22 22:11:39 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:39:59 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {

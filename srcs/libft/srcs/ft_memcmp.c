@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:38:26 by kinamura          #+#    #+#             */
-/*   Updated: 2024/04/29 20:55:20 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:39:41 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../../includes/libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

@@ -6,11 +6,11 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 16:47:52 by kinamura          #+#    #+#             */
-/*   Updated: 2024/07/03 11:36:15 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/13 14:37:38 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../../includes/get_next_line.h"
 
 char	*ft_memadd(char *s1, const char *s2, size_t size)
 {
