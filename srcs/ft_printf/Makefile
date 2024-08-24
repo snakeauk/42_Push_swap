@@ -4,8 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 AR = ar rcs
 
-SRCS_DIR = ./srcs/
-INCLUDES_DIR = ../../includes/
+SRCS_DIR = ./srcs
 
 SRCS =	$(SRCS_DIR)/ft_outchar.c $(SRCS_DIR)/ft_outstr.c \
 		$(SRCS_DIR)/ft_printf_c.c $(SRCS_DIR)/ft_printf.c \
@@ -17,17 +16,17 @@ SRCS =	$(SRCS_DIR)/ft_outchar.c $(SRCS_DIR)/ft_outstr.c \
 
 OBJS = $(SRCS:.c=.o)
 
-LIBFT_PATH = ../libft/
-LIBFT_NAME = libft.a
+INCLUDES = ../../includes
+
+MAKEFLAGS += --no-print-directory
 
 all: $(NAME)
 
-.c.o:
-	@$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INCLUDES_DIR)
-
 $(NAME): $(OBJS)
-	@cp $(LIBFT_PATH)/$(LIBFT_NAME) $(NAME)
-	@$(AR) $(NAME) $(OBJS)
+	@$(AR) $@ $^
+
+.c.o:
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJS)
