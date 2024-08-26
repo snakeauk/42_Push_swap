@@ -6,13 +6,13 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 01:38:57 by kinamura          #+#    #+#             */
-/*   Updated: 2024/08/27 01:48:56 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/27 02:06:51 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-input_degit_checker(int argc, char **argv)
+int	intinput_is_degit_checker(int argc, char **argv)
 {
 	size_t	count;
 	size_t	index;
@@ -37,14 +37,14 @@ input_degit_checker(int argc, char **argv)
 				return (0);
 		}
 	}
-	return (1)
+	return (1);
 }
 
 t_stack	*input_to_stack(int argc, char **argv)
 {
 	t_stack	*stack;
 
-	if (!input_degit_checker(argc, argv))
+	if (!input_is_degit_checker(argc, argv))
 		ft_error(STDERR_FILENO);
 	stack = arg_to_stack(argc, argv);
 	return (stack);
