@@ -6,17 +6,33 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 01:38:57 by kinamura          #+#    #+#             */
-/*   Updated: 2024/08/27 02:06:51 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/27 03:10:36 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	intinput_is_degit_checker(int argc, char **argv)
+t_stack	*input_to_stack(int argc, char **argv);
+int		input_duplication_checker(int argc, char **argv);
+int		input_duplication_checker(int argc, char **argv);
+
+t_stack	*input_to_stack(int argc, char **argv)
 {
-	size_t	count;
-	size_t	index;
-	int		length;
+	t_stack	*stack;
+
+	if (!input_is_degit_checker(argc, argv))
+		ft_error(STDERR_FILENO);
+	if (!input_duplication_checker(argc, argv))
+		ft_error(STDERR_FILENO);
+	stack = ft_stackinput(argc, argv);
+	return (stack);
+}
+
+int	input_is_degit_checker(int argc, char **argv)
+{
+	int	count;
+	int	index;
+	int	length;
 
 	count = 1;
 	while (count < argc)
@@ -36,16 +52,29 @@ int	intinput_is_degit_checker(int argc, char **argv)
 			if (!ft_isdigit(argv[count][index]))
 				return (0);
 		}
+		count++;
 	}
 	return (1);
 }
 
-t_stack	*input_to_stack(int argc, char **argv)
+int	input_duplication_checker(int argc, char **argv)
 {
-	t_stack	*stack;
+	int		index;
+	int		check;
+	long	num;
 
-	if (!input_is_degit_checker(argc, argv))
-		ft_error(STDERR_FILENO);
-	stack = arg_to_stack(argc, argv);
-	return (stack);
+	index = 1;
+	while (index < argc - 1)
+	{
+		num = ft_atol(argv[index]);
+		check = index + 1;
+		while (check < argc)
+		{
+			if (ft_atol(argv[check]) == num)
+				return (0);
+			check++;
+		}
+		index++;
+	}
+	return (1);
 }

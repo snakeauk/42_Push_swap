@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 01:08:58 by kinamura          #+#    #+#             */
-/*   Updated: 2024/08/27 01:39:05 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/27 03:01:25 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int main(int argc, char **argv)
         ft_stackfree(&stack_a);
         return(0);
     }
+    ft_stackfree(&stack_a);
+    ft_stackfree(&stack_b);
     return (0);
 }
