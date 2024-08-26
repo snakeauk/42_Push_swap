@@ -1,6 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/27 01:08:58 by kinamura          #+#    #+#             */
+/*   Updated: 2024/08/27 01:39:05 by kinamura         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-int main(void)
+
+int main(int argc, char **argv)
 {
-    ft_printf("Hello");
+    t_stack *stack_a;
+    t_stack *stack_b;
+
+    if (argc == 1)
+        ft_error(EXIT_FAILURE);
+    stack_b = NULL;
+    stack_a = input_to_stack(argc, argv);
+    if (!stack_a)
+        ft_error(EXIT_FAILURE);
+    if (ft_issorted(stack_a) == 1)
+    {
+        ft_stackfree(&stack_a);
+        return(0);
+    }
     return (0);
 }
