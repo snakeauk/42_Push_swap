@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 01:22:35 by kinamura          #+#    #+#             */
-/*   Updated: 2024/08/27 02:05:52 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/27 03:00:03 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 int		main(int argc, char **argv);
 
 // input_to_stack.c
-input_is_degit_checker(int argc, char **argv);
 t_stack	*input_to_stack(int argc, char **argv);
+int		input_is_degit_checker(int argc, char **argv);
+int		input_is_degit_checker(int argc, char **argv);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 01:26:01 by kinamura          #+#    #+#             */
-/*   Updated: 2024/08/27 01:28:15 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/08/27 02:12:20 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 # define EXIT_FAILURE 1
 
 void	ft_error(int code);
+int		ft_issign(int c);
 
 #endif
