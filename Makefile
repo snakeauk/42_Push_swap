@@ -30,7 +30,7 @@ OBJS		=	$(SRCS:.c=.o)
 
 
 BONUS_DIR	=	./bonus
-BONUS_SRCS	=	(BONUS_DIR)/*.c
+BONUS_SRCS	=	$(BONUS_DIR)/main.c
 BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
 
 INCLUDES	=	-I ./includes -I $(LIB_DIR)/includes
@@ -57,18 +57,19 @@ $(NAME): $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o
 	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIB_DIR)/$(LIB) -o $(NAME)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(NAME) Complete!$(RESET)"
 
-bonus: $(BONUS)
+$(BONUS):
+# $(BONUS): $(BONUS_OBJS) $(OBJS) $(LIB_OBJS)
+#	@$(MAKE) -C $(LIB_DIR)
+#	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS)...$(RESET)"
+#	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) -o $(BONUS)
+#	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS) Complete!$(RESET)"
 
-$(BONUS): $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) $(BONUS_DIR)/main.o
-	@$(MAKE) -C $(LIB_DIR)
-	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS)...$(RESET)"
-	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) -o $(BONUS)
-	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS) Complete!$(RESET)"
+bonus: $(BONUS)
 
 clean:
 	@echo "$(BOLD)$(LIGHT_BLUE)Cleaning $(NAME)...$(RESET)"
 	@$(MAKE) clean -C $(LIB_DIR)
-	@$(RM) $(OBJS) $(BONUS_OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o $(BONUS_DIR)/main.o
+	@$(RM) $(OBJS) $(BONUS_OBJS) $(LIB_OBJS)
 	@echo "$(BOLD)$(LIGHT_BLUE)Cleaning $(NAME) Complete!$(RESET)"
 
 fclean: clean
