@@ -5,15 +5,14 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -rf
 
+LIB_DIR		=	./lib
 LIB			=	lib.a
 
-LIB_DIR		=	./lib
-LIB_SRCS	=	$(wildcard $(LIB_DIR)/*/*.c)
-LIB_OBJS	=	$(LIB_SRCS:.c=.o)
-
 SRCS_DIR	=	./srcs
+CMD_DIR		=	$(SRCS_DIR)/commands
+STACKS_DIR	=	$(SRCS_DIR)/stacks
 INCLUDES	=	-I ./includes -I $(LIB_DIR)/includes
-SRCS		=	$(filter-out $(SRCS_DIR)/main.c, $(wildcard $(SRCS_DIR)/*/*.c))
+SRCS		=	$(filter-out $(SRCS_DIR)/main.c, $(wildcard $(SRCS_DIR)/*.c $(CMD_DIR)/*.c $(STACKS_DIR)/*.c))
 OBJS		=	$(SRCS:.c=.o)
 
 BONUS_DIR	=	./bonus
@@ -58,7 +57,7 @@ clean:
 
 fclean: clean
 	@$(MAKE) fclean -C $(LIB_DIR)
-	@echo "$(BOLD)$(LIGHT_BLUE)ALL Cleaning $(NAME)...$(RESET)"
+	@echo "$(BOLD)$(LIGHT_BLUE)Cleaning $(NAME)...$(RESET)"
 	@$(RM) $(NAME) $(BONUS)
 	@echo "$(BOLD)$(LIGHT_BLUE)ALL Cleaning $(NAME) Complete!$(RESET)"
 

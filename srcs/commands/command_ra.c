@@ -1,12 +1,11 @@
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void    command_ra(t_psargs *data)
 {
-    if (argc < 3 || argc > ARG_MAX)
-        exit(ft_error());
-    else
-        push_swap(argc, argv);
-    return (0);
+    if (data->stack_a->next->sentinel == 1)
+        return ;
+    ft_stackrotate(data->stack_a);
+    ft_stackadd_back(data->ans, ft_stacknew(COM_RA));
 }
 // int main(int argc, char **argv)
 // {
@@ -16,8 +15,6 @@ int main(int argc, char **argv)
 //     data = input_ctl(argc, argv);
 //     ft_printf("data OK!!\n\n\n");
 //     data->stack_a = ft_stackinput(data);
-//     data->stack_b = ft_stackinit();
-//     data->ans = ft_stackinit();
 //     count = 0;
 //     data->stack_a = data->stack_a->next;
 //     while (data->stack_a->sentinel != 1)
@@ -28,15 +25,16 @@ int main(int argc, char **argv)
 //     }
 //     ft_printf("data->stack_a->next OK!!\n\n\n");
 //     data->stack_a = data->stack_a->prev;
+//     count = 0;
 //     while (data->stack_a->sentinel != 1)
 //     {
 //         ft_printf("%d:%d\n", count, data->stack_a->content);
 //         data->stack_a = data->stack_a->prev;
-//         count--;
+//         count++;
 //     }
 //     ft_printf("data->stack_a->prev OK!!\n\n\n");
 //     ft_printf("====================\n\n\n");
-//     data->stack_a = ft_stackcompress(data->stack_a);
+//     command_ra(data);
 //     data->stack_a = data->stack_a->next;
 //     count = 0;
 //     while (data->stack_a->sentinel != 1)
@@ -47,9 +45,13 @@ int main(int argc, char **argv)
 //     }
 //     ft_printf("data->stack_a->next OK!!\n\n\n");
 //     data->stack_a = data->stack_a->prev;
-//     ft_stack_print(data->stack_a);
+//     count = 0;
+//     while (data->stack_a->sentinel != 1)
+//     {
+//         ft_printf("%d:%d\n", count, data->stack_a->content);
+//         data->stack_a = data->stack_a->prev;
+//         count++;
+//     }
 //     ft_printf("data->stack_a->prev OK!!\n");
-//     ft_stack_print(data->stack_a);
-//     ft_printf("data->ans->next OK!!\n\n\n");
 //     exit(0);
 // }

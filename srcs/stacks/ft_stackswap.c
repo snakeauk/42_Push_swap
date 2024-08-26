@@ -1,12 +1,22 @@
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void ft_stackswap(t_stack *stack)
 {
-    if (argc < 3 || argc > ARG_MAX)
-        exit(ft_error());
-    else
-        push_swap(argc, argv);
-    return (0);
+    t_stack *node1;
+    t_stack *node2;
+    t_stack *next_node;
+
+    if (stack->next->sentinel == 1)
+        return ;
+    node1 = stack->next;
+    node2 = stack->next->next;
+    next_node = stack->next->next->next;
+    node2->next = node1;
+    node1->next = next_node;
+    stack->next = node2;
+    node2->prev = stack;
+    node1->prev = node2;
+    next_node->prev = node1;
 }
 // int main(int argc, char **argv)
 // {
@@ -16,8 +26,6 @@ int main(int argc, char **argv)
 //     data = input_ctl(argc, argv);
 //     ft_printf("data OK!!\n\n\n");
 //     data->stack_a = ft_stackinput(data);
-//     data->stack_b = ft_stackinit();
-//     data->ans = ft_stackinit();
 //     count = 0;
 //     data->stack_a = data->stack_a->next;
 //     while (data->stack_a->sentinel != 1)
@@ -36,7 +44,7 @@ int main(int argc, char **argv)
 //     }
 //     ft_printf("data->stack_a->prev OK!!\n\n\n");
 //     ft_printf("====================\n\n\n");
-//     data->stack_a = ft_stackcompress(data->stack_a);
+//     ft_stackswap(data->stack_a);
 //     data->stack_a = data->stack_a->next;
 //     count = 0;
 //     while (data->stack_a->sentinel != 1)
@@ -47,9 +55,12 @@ int main(int argc, char **argv)
 //     }
 //     ft_printf("data->stack_a->next OK!!\n\n\n");
 //     data->stack_a = data->stack_a->prev;
-//     ft_stack_print(data->stack_a);
+//     while (data->stack_a->sentinel != 1)
+//     {
+//         ft_printf("%d:%d\n", count, data->stack_a->content);
+//         data->stack_a = data->stack_a->prev;
+//         count--;
+//     }
 //     ft_printf("data->stack_a->prev OK!!\n");
-//     ft_stack_print(data->stack_a);
-//     ft_printf("data->ans->next OK!!\n\n\n");
 //     exit(0);
 // }

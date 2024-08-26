@@ -1,12 +1,52 @@
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void sort_3_switch_fs(t_psargs *data, int first, int third)
 {
-    if (argc < 3 || argc > ARG_MAX)
-        exit(ft_error());
+    if (first < third)
+    {
+        command_sa(data);
+        command_ra(data);
+    }
     else
-        push_swap(argc, argv);
-    return (0);
+        command_rra(data);
+}
+
+void sort_3_switch_sf(t_psargs *data, int first, int second, int third)
+{
+    if (first < third)
+    {
+        command_sa(data);
+    }
+    else
+    {
+        if (second < third)
+        {
+            command_ra(data);
+        }
+        else
+        {
+            command_sa(data);
+            command_rra(data);
+        }
+    }
+}
+
+void sort_3(t_psargs *data)
+{
+    int first;
+    int second;
+    int third;
+
+    first = data->stack_a->next->content;
+    second = data->stack_a->next->next->content;
+    third = data->stack_a->next->next->next->content;
+
+    if (ft_issorted(data->stack_a))
+        return ;
+    if (first < second)
+        sort_3_switch_fs(data, first, third);
+    else
+        sort_3_switch_sf(data, first, second, third);
 }
 // int main(int argc, char **argv)
 // {
@@ -36,7 +76,7 @@ int main(int argc, char **argv)
 //     }
 //     ft_printf("data->stack_a->prev OK!!\n\n\n");
 //     ft_printf("====================\n\n\n");
-//     data->stack_a = ft_stackcompress(data->stack_a);
+//     sort_3(data);
 //     data->stack_a = data->stack_a->next;
 //     count = 0;
 //     while (data->stack_a->sentinel != 1)
@@ -47,9 +87,21 @@ int main(int argc, char **argv)
 //     }
 //     ft_printf("data->stack_a->next OK!!\n\n\n");
 //     data->stack_a = data->stack_a->prev;
-//     ft_stack_print(data->stack_a);
+//     while (data->stack_a->sentinel != 1)
+//     {
+//         ft_printf("%d:%d\n", count, data->stack_a->content);
+//         data->stack_a = data->stack_a->prev;
+//         count--;
+//     }
 //     ft_printf("data->stack_a->prev OK!!\n");
-//     ft_stack_print(data->stack_a);
+//     data->ans = data->ans->next;
+//     count = 0;
+//     while (data->ans->sentinel != 1)
+//     {
+//         ft_printf("%d:%d\n", count, data->ans->content);
+//         data->ans = data->ans->next;
+//         count++;
+//     }
 //     ft_printf("data->ans->next OK!!\n\n\n");
 //     exit(0);
 // }
