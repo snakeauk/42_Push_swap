@@ -14,17 +14,23 @@ STACK_DIR	=	$(SRCS_DIR)/stack
 UTILS_DIR	=	$(SRCS_DIR)/utils
 
 SRCS		=	$(SRCS_DIR)/main.c \
+				$(SRCS_DIR)/input_to_stack.c \
 				\
+				$(STACK_DIR)/ft_issorted.c \
+				$(STACK_DIR)/ft_stackadd_back.c \
 				$(STACK_DIR)/ft_stackfree.c \
+				$(STACK_DIR)/ft_stackinput.c \
+				$(STACK_DIR)/ft_stacknew.c \
 				\
 				$(UTILS_DIR)/ft_error.c \
+				$(UTILS_DIR)/ft_issign.c \
 
 
 OBJS		=	$(SRCS:.c=.o)
 
 
 BONUS_DIR	=	./bonus
-BONUS_SRCS	=	$(filter-out $(BONUS_DIR)/main.c, $(wildcard $(BONUS_DIR)/*.c))
+BONUS_SRCS	=	(BONUS_DIR)/*.c
 BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
 
 INCLUDES	=	-I ./includes -I $(LIB_DIR)/includes
@@ -48,7 +54,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o
 	@$(MAKE) -C $(LIB_DIR)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(NAME)...$(RESET)"
-	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIB_DIR)/$(LIB) $(SRCS_DIR)/main.c -o $(NAME)
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIB_DIR)/$(LIB) -o $(NAME)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(NAME) Complete!$(RESET)"
 
 bonus: $(BONUS)
@@ -56,7 +62,7 @@ bonus: $(BONUS)
 $(BONUS): $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) $(BONUS_DIR)/main.o
 	@$(MAKE) -C $(LIB_DIR)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS)...$(RESET)"
-	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) $(BONUS_DIR)/main.o -o $(BONUS)
+	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) -o $(BONUS)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS) Complete!$(RESET)"
 
 clean:
