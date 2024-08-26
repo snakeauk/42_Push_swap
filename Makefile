@@ -10,13 +10,24 @@ LIB			=	lib.a
 LIB_DIR		=	./lib
 
 SRCS_DIR	=	./srcs
-INCLUDES	=	-I ./includes -I $(LIB_DIR)/includes
-SRCS		=	$(filter-out $(SRCS_DIR)/main.c, $(wildcard $(SRCS_DIR)/*/*.c))
+STACK_DIR	=	$(SRCS_DIR)/stack
+UTILS_DIR	=	$(SRCS_DIR)/utils
+
+SRCS		=	$(SRCS_DIR)/main.c \
+				\
+				$(STACK_DIR)/ft_stackfree.c \
+				\
+				$(UTILS_DIR)/ft_error.c \
+
+
 OBJS		=	$(SRCS:.c=.o)
+
 
 BONUS_DIR	=	./bonus
 BONUS_SRCS	=	$(filter-out $(BONUS_DIR)/main.c, $(wildcard $(BONUS_DIR)/*.c))
 BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
+
+INCLUDES	=	-I ./includes -I $(LIB_DIR)/includes
 
 RESET		=	\033[0m
 BOLD		=	\033[1m
