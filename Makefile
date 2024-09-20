@@ -1,5 +1,4 @@
 NAME		=	push_swap
-BONUS		=	checker
 
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
@@ -9,31 +8,25 @@ LIB			=	lib.a
 
 LIB_DIR		=	./lib
 
-SRCS_DIR	=	./srcs
-STACK_DIR	=	$(SRCS_DIR)/stack
+INCLUDES	=	-I ./includes -I $(LIB_DIR)/includes
+
 UTILS_DIR	=	$(SRCS_DIR)/utils
 
-SRCS		=	$(SRCS_DIR)/main.c \
-				$(SRCS_DIR)/input_to_stack.c \
-				\
-				$(STACK_DIR)/ft_issorted.c \
-				$(STACK_DIR)/ft_stackadd_back.c \
-				$(STACK_DIR)/ft_stackfree.c \
-				$(STACK_DIR)/ft_stackinput.c \
-				$(STACK_DIR)/ft_stacknew.c \
-				\
-				$(UTILS_DIR)/ft_error.c \
-				$(UTILS_DIR)/ft_issign.c \
+SRCS_DIR	=	./srcs
+SRCS		:=	./src/array/int_arr.c ./src/array/str_arr.c ./src/error/error.c ./src/op_list/op_list.c \
+				./src/op_list/opt/opt.c ./src/solver/insertion_sort.c ./src/solver/quick_sort/quick_sort.c ./src/solver/sort.c \
+				./src/solver/sort_2.c ./src/solver/sort_3.c ./src/solver/sort_4.c ./src/solver/sort_5.c ./src/solver/utils/is_sorted.c \
+				./src/stack/constructor.c ./src/stack/controls/basic_controls/at.c ./src/stack/controls/basic_controls/pop.c \
+				./src/stack/controls/basic_controls/push.c ./src/stack/controls/basic_controls/record.c ./src/stack/controls/basic_controls/rotate.c \
+				./src/stack/controls/print_stack.c ./src/stack/controls/push.c ./src/stack/controls/repeat.c ./src/stack/controls/rev_rotate.c \
+				./src/stack/controls/rotate.c ./src/stack/controls/swap.c ./src/stack/destructor.c ./src/stack/node/constructor.c ./src/stack/node/controls/has.c \
+				./src/stack/node/controls/insert.c ./src/stack/node/controls/pop.c ./src/stack/node/destructor.c ./src/utils/compress_array.c \
+				./src/utils/ft_atoi_arr.c ./src/utils/ft_atoi_ex.c ./src/utils/get_median_in_list.c ./src/utils/min_value_in_list.c ./src/utils/sort.c ./src/validation/validation.c
+OBJS		:=	$(SRCS:.c=.o) ./src/main.o
 
-
-OBJS		=	$(SRCS:.c=.o)
-
-
-BONUS_DIR	=	./bonus
-BONUS_SRCS	=	$(BONUS_DIR)/main.c
-BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
-
-INCLUDES	=	-I ./includes -I $(LIB_DIR)/includes
+BONUS_NAME	=	checker
+B_SRCS		=	./src/checker/main.c
+B_OBJS		=	$(B_SRCS:.c=.o) $(SRCS:.c=.o)
 
 RESET		=	\033[0m
 BOLD		=	\033[1m
@@ -51,33 +44,30 @@ all: $(NAME)
 .c.o:
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(NAME): $(OBJS) $(LIB_OBJS) $(SRCS_DIR)/main.o
+$(NAME): $(OBJS)
 	@$(MAKE) -C $(LIB_DIR)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(NAME)...$(RESET)"
 	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIB_DIR)/$(LIB) -o $(NAME)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(NAME) Complete!$(RESET)"
 
-$(BONUS):
-# $(BONUS): $(BONUS_OBJS) $(OBJS) $(LIB_OBJS)
-#	@$(MAKE) -C $(LIB_DIR)
-#	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS)...$(RESET)"
-#	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS) $(LIB_OBJS) -o $(BONUS)
-#	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS) Complete!$(RESET)"
-
-bonus: $(BONUS)
-
 clean:
 	@echo "$(BOLD)$(LIGHT_BLUE)Cleaning $(NAME)...$(RESET)"
 	@$(MAKE) clean -C $(LIB_DIR)
-	@$(RM) $(OBJS) $(BONUS_OBJS) $(LIB_OBJS)
+	@$(RM) $(OBJS) $(B_OBJS)
 	@echo "$(BOLD)$(LIGHT_BLUE)Cleaning $(NAME) Complete!$(RESET)"
 
 fclean: clean
 	@$(MAKE) fclean -C $(LIB_DIR)
 	@echo "$(BOLD)$(LIGHT_BLUE)ALL Cleaning $(NAME)...$(RESET)"
-	@$(RM) $(NAME) $(BONUS)
+	@$(RM) $(NAME) $(BONUS_NAME)
 	@echo "$(BOLD)$(LIGHT_BLUE)ALL Cleaning $(NAME) Complete!$(RESET)"
 
-re: fclean all bonus
+bonus: fclean $(B_OBJS) $(OBJS)
+	@$(MAKE) -C $(LIB_DIR)
+	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS)...$(RESET)"
+	@$(CC) $(CFLAGS) $(INCLUDES) $(B_OBJS) $(LIB_DIR)/$(LIB) -o $(BONUS_NAME)
+	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS) Complete!$(RESET)"
 
-.PHONY: all clean fclean re
+re: fclean all
+
+.PHONY: all clean fclean re bonus
