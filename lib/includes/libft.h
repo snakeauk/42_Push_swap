@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:45:34 by kinamura          #+#    #+#             */
-/*   Updated: 2024/09/20 22:02:55 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/05 19:43:04 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
+int					ft_isint(const char *str);
 int					ft_isprint(int c);
 int					ft_isspace(int c);
 int					ft_ishexdigit(int c);
-int					ft_max(int a, int b);
-int					ft_min(int a, int b);
 size_t				ft_strlen(const char *s);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -55,6 +54,8 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 						size_t len);
 int					ft_hextoi(int c);
 int					ft_atoi(const char *str);
+long				ft_atol(const char *str);
+int					ft__space_sign(char **str);
 long				ft_strtol(const char *str, char **endptr, int base);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *s1);
@@ -70,6 +71,8 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 int					ft_fopen(char *filename, const char *mode);
+int					ft_abs(int i);
+void				ft_swap(int *i, int *j);
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);

@@ -1,8 +1,9 @@
-# ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+# ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 #include "libft.h"
 #include "ft_printf.h"
+#include "get_next_line.h"
 #include "ft_stack.h"
 #include "ft_command.h"
 #include "ft_sort.h"

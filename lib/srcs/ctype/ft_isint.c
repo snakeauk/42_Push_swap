@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vdprintf.c                                      :+:      :+:    :+:   */
+/*   ft_isint.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 00:25:32 by kinamura          #+#    #+#             */
-/*   Updated: 2024/09/14 01:26:00 by kinamura         ###   ########.fr       */
+/*   Created: 2024/10/05 02:24:00 by kinamura          #+#    #+#             */
+/*   Updated: 2024/10/05 02:24:05 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_vdprintf(int fd, const char *format, va_list ap)
+int	ft_isint(const char *str)
 {
-	int	ret;
-	int	w_ret;
+	long long	llnum;
+	char		*ptr;
+	int			sign;
 
-	ret = 0;
-	while (*format)
+	ptr = (char *)str;
+	sign = ft__space_sign(&ptr);
+	if (!ptr || *ptr == '\0')
+		return (0);
+	llnum = 0;
+	while (*ptr >= '0' && *ptr <= '9')
 	{
-		if (*format == '%')
-		{
-			format++;
-			w_ret = ft_printf_switch(format, ap, fd);
-			if (w_ret < 0)
-				return (-1);
-			ret += w_ret;
-		}
-		else
-		{
-			w_ret = ft_putc(*format, fd);
-			if (w_ret < 0)
-				return (-1);
-			ret += w_ret;
-		}
-		format++;
+		llnum = llnum * 10 + (*ptr - '0');
+		if ((sign * llnum) < INT_MIN || (sign * llnum) > INT_MAX)
+			return (0);
+		ptr++;
 	}
-	return (ret);
+	if (*ptr != '\0')
+		return (0);
+	return (1);
 }
