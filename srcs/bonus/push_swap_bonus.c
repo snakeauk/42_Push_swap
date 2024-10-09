@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:42:21 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:56:34 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/10 00:44:02 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ static int	push_swap_bonus(int **array)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	stack_a = ft_stack_create(&array);
+	stack_a = ft_stack_create(array);
 	if (!stack_a)
 		return (EXIT_FAILURE);
-	if (ft_stack_issort(stack_a))
+	if (ft_stack_issort(&stack_a))
 		return (EXIT_SUCCESS);
 	stack_b = NULL;
 	status = execute_command(&stack_a, &stack_b);
@@ -72,10 +72,10 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (EXIT_FAILURE);
-	array = ft_array_input(argc, argv);
+	array = ft_argv_input_array(argc, argv);
 	if (!array)
 		return (EXIT_FAILURE);
-	ft_push_swap(&array);
+	status = push_swap_bonus(&array);
 	free(array);
 	return (status);
 }

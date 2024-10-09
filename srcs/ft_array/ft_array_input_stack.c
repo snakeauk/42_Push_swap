@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_array_input_stack.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 23:42:14 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/10 00:38:08 by kinamura         ###   ########.fr       */
+/*   Created: 2024/10/10 00:46:22 by kinamura          #+#    #+#             */
+/*   Updated: 2024/10/10 00:46:25 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_array.h"
 
-int	main(int argc, char **argv)
+int	*ft_array_input_stack(t_stack **stack)
 {
-	int	*array;
-	int	status;
+	int		*ret;
+	int		size;
+	int		index;
+	t_stack	*node;
 
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	array = ft_argv_input_array(argc, argv);
-	if (!array)
-		return (EXIT_FAILURE);
-	status = ft_push_swap(&array);
-	free(array);
-	return (status);
+	size = ft_stack_size(stack);
+	ret = (int *)malloc(sizeof(int) * size);
+	if (!ret)
+		return (NULL);
+	index = 0;
+	node = (*stack);
+	while (index < size)
+	{
+		ret[index] = node->content;
+		node = node->next;
+		index++;
+	}
+	return (ret);
 }

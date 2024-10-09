@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_array_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 23:42:14 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/10 00:38:08 by kinamura         ###   ########.fr       */
+/*   Created: 2024/10/10 00:46:39 by kinamura          #+#    #+#             */
+/*   Updated: 2024/10/10 00:46:40 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_array.h"
 
-int	main(int argc, char **argv)
+int	ft_array_char_size(char **array)
 {
-	int	*array;
-	int	status;
+	int	count;
 
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	array = ft_argv_input_array(argc, argv);
-	if (!array)
-		return (EXIT_FAILURE);
-	status = ft_push_swap(&array);
-	free(array);
-	return (status);
+	count = 0;
+	while (array[count])
+		count++;
+	return (count);
 }
