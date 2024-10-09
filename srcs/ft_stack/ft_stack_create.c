@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_stack_create.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/09 23:44:28 by kinamura          #+#    #+#             */
+/*   Updated: 2024/10/09 23:44:35 by kinamura         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_stack.h"
 
 static void	ft_stack_add_rank(t_stack **stack)
 {
-	int		*array;
 	t_stack	*node;
+	int		*array;
 	int		index;
 
 	array = ft_array_input_stack(stack);
@@ -30,8 +42,8 @@ static void	ft_stack_add_rank(t_stack **stack)
 
 t_stack	*ft_stack_create(int **array)
 {
-	t_stack *stack;
-	t_stack *node;
+	t_stack	*stack;
+	t_stack	*node;
 	size_t	index;
 
 	index = 0;

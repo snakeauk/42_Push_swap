@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_large.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/09 23:43:54 by kinamura          #+#    #+#             */
+/*   Updated: 2024/10/09 23:43:55 by kinamura         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_sort.h"
 
-static void	handle_max(t_stack **stack_a, t_stack **stack_b, int *max, int *pushed)
+static void	handle_max(t_stack **stack_a, t_stack **stack_b, int *max,
+		int *pushed)
 {
 	ft_command_print(ft_command_pa(stack_a, stack_b));
 	(*max)--;
@@ -60,7 +73,8 @@ static void	divide_stack(t_stack **stack_a, t_stack **stack_b, t_data *data)
 		if ((*stack_a)->rank <= max)
 		{
 			ft_command_print(ft_command_pb(stack_a, stack_b));
-			if (ft_stack_size(stack_b) > 1 && (*stack_b)->rank > max - data->blksize)
+			if (ft_stack_size(stack_b) > 1 && (*stack_b)->rank > max
+				- data->blksize)
 				ft_command_print(ft_command_rb(stack_b));
 		}
 		else

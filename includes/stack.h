@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_new.c                                     :+:      :+:    :+:   */
+/*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 23:45:10 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:45:11 by kinamura         ###   ########.fr       */
+/*   Created: 2024/10/09 23:39:24 by kinamura          #+#    #+#             */
+/*   Updated: 2024/10/09 23:39:27 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+#ifndef STACK_H
+# define STACK_H
 
-t_stack	*ft_stack_new(int content)
+typedef struct s_stack
 {
-	t_stack	*new;
+	int				rank;
+	int				content;
+	struct s_stack	*next;
+}					t_stack;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
-}
+#endif

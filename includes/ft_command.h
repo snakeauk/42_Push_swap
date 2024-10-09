@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_command.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/09 23:36:21 by kinamura          #+#    #+#             */
+/*   Updated: 2024/10/09 23:40:49 by kinamura         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# ifndef FT_COMMAND_H
+#ifndef FT_COMMAND_H
 # define FT_COMMAND_H
 
 # include "ft_printf.h"
 # include "ft_stack.h"
+# include "stack.h"
 
 # define SA 1
 # define SB 2
@@ -28,11 +40,11 @@ int		ft_command_pb(t_stack **stack_a, t_stack **stack_b);
 int		ft_command_output(int cmd);
 int		ft_command_choice(int cmd, int *store);
 void	ft_command_print(int cmd);
-int	    ft_iscommand_swap(char *cmd);
-int	    ft_iscommand_push(char *cmd);
-int	    ft_iscommand_rotate(char *cmd);
-int	    ft_iscommand_reverse(char *cmd);
-int	    ft_iscommand(char *cmd);
-int	       ft_command_execute(char *cmd, t_stack **stack_a, t_stack **stack_b);
+int		ft_iscommand_swap(char *cmd);
+int		ft_iscommand_push(char *cmd);
+int		ft_iscommand_rotate(char *cmd);
+int		ft_iscommand_reverse(char *cmd);
+int		ft_iscommand(char *cmd);
+int		ft_command_execute(char *cmd, t_stack **stack_a, t_stack **stack_b);
 
-# endif
+#endif

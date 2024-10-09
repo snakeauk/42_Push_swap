@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/09 23:44:15 by kinamura          #+#    #+#             */
+/*   Updated: 2024/10/09 23:44:16 by kinamura         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_sort.h"
 
-int ft_sort(t_stack **stack)
+int	ft_sort(t_stack **stack)
 {
-	int	status;
+	int		status;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 

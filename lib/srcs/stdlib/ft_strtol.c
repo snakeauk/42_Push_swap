@@ -43,17 +43,17 @@ void	ft__base_check(char **ptr, int *base)
 		else
 			*base = 10;
 	}
-	else if (*base == 16 && **ptr == '0' \
-			&& (*(*ptr + 1) == 'x' || *(*ptr + 1) == 'X'))
+	else if (*base == 16 && **ptr == '0' && (*(*ptr + 1) == 'x' || *(*ptr
+				+ 1) == 'X'))
 		*ptr += 2;
 }
 
 long	ft_strtol(const char *str, char **endptr, int base)
 {
-	char		*p;
-	int			sign;
-	long		ret;
-	int			digit;
+	char	*p;
+	int		sign;
+	long	ret;
+	int		digit;
 
 	p = (char *)str;
 	sign = ft__space_sign(&p);
