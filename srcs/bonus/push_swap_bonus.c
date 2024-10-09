@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:42:21 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/10 00:44:02 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/10 01:06:30 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,6 @@ static int	push_swap_bonus(int **array)
 		return (EXIT_SUCCESS);
 	stack_b = NULL;
 	status = execute_command(&stack_a, &stack_b);
-	if (status == EXIT_SUCCESS)
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
 	if (ft_stack_size(&stack_a) != 0)
 		ft_stack_free(&stack_a);
 	if (ft_stack_size(&stack_b) != 0)
@@ -76,6 +72,10 @@ int	main(int argc, char **argv)
 	if (!array)
 		return (EXIT_FAILURE);
 	status = push_swap_bonus(&array);
+	if (status == EXIT_SUCCESS)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	free(array);
 	return (status);
 }
