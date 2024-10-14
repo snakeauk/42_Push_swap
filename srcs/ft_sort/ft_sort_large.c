@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:43:54 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:43:55 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:50:35 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,16 +87,15 @@ static void	divide_stack(t_stack **stack_a, t_stack **stack_b, t_data *data)
 		divide_stack(stack_a, stack_b, data);
 }
 
-void	sort_large(t_stack **stack_a, t_stack **stack_b)
+int	sort_large(t_stack **stack_a, t_stack **stack_b)
 {
 	t_data	*data;
 
 	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 	{
-		ft_stack_free(stack_a);
-		ft_stack_free(stack_b);
-		exit(1);
+		ft_dprintf(STDERR_FILENO, "Error\n");
+		return (EXIT_FAILURE);
 	}
 	data->blk_group = 1;
 	data->size = ft_stack_size(stack_a);
@@ -108,4 +107,5 @@ void	sort_large(t_stack **stack_a, t_stack **stack_b)
 	divide_stack(stack_a, stack_b, data);
 	push_back(stack_a, stack_b, ft_stack_size(stack_b));
 	free(data);
+	return (EXIT_SUCCESS);
 }

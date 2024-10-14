@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:44:15 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:44:16 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:59:32 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,29 @@
 int	ft_sort(t_stack **stack)
 {
 	int		status;
+	int		size;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
 	status = EXIT_SUCCESS;
+	if (ft_stack_issort(stack))
+	{
+		ft_stack_free(stack);
+		return (status);
+	}
 	stack_a = (*stack);
 	stack_b = NULL;
-	if (ft_stack_issort(&stack_a))
-		return (status);
-	else if (ft_stack_size(&stack_a) <= 2)
+	size = ft_stack_size(&stack_a);
+	if (size <= 2)
 		sort_2(&stack_a);
-	else if (ft_stack_size(&stack_a) <= 3)
+	else if (size == 3)
 		sort_3(&stack_a);
-	else if (ft_stack_size(&stack_a) <= 6)
+	else if (size <= 6)
 		sort_mini(&stack_a, &stack_b);
 	else
-		sort_large(&stack_a, &stack_b);
+		status = sort_large(&stack_a, &stack_b);
+	ft_command_print(0);
 	ft_stack_free(&stack_a);
 	ft_stack_free(&stack_b);
-	ft_command_print(0);
 	return (status);
 }

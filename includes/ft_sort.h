@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:36:18 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:40:35 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:50:48 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int		ft_sort(t_stack **stack);
 void	sort_2(t_stack **stack_a);
 void	sort_3(t_stack **stack_a);
 void	sort_mini(t_stack **stack_a, t_stack **stack_b);
-void	sort_large(t_stack **stack_a, t_stack **stack_b);
+int		sort_large(t_stack **stack_a, t_stack **stack_b);
 
 #endif

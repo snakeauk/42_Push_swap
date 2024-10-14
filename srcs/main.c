@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:42:14 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/10 00:38:08 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:56:18 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@ int	main(int argc, char **argv)
 	int	status;
 
 	if (argc < 2)
+	{
+		ft_dprintf(STDERR_FILENO, "Error\n");
 		return (EXIT_FAILURE);
+	}
 	array = ft_argv_input_array(argc, argv);
 	if (!array)
+	{
+		ft_dprintf(STDERR_FILENO, "Error\n");
 		return (EXIT_FAILURE);
+	}
 	status = ft_push_swap(&array);
-	free(array);
 	return (status);
 }
