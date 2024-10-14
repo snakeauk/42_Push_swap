@@ -100,7 +100,7 @@ fclean:
 	@$(RM) $(NAME) $(BONUS)
 	@echo "$(BOLD)$(LIGHT_BLUE)ALL Cleaning $(NAME) Complete!$(RESET)"
 
-bonus: fclean $(BONUS_OBJS) $(OBJS)
+bonus: $(BONUS_OBJS) $(OBJS)
 	@$(MAKE) -C $(LIB_DIR)
 	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS)...$(RESET)"
 	@$(CC) $(CFLAGS) $(INCLUDES) $(BONUS_OBJS) $(LIB_DIR)/$(LIB) -o $(BONUS)

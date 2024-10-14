@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:43:54 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/14 16:50:35 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/14 17:42:22 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,9 @@ int	sort_large(t_stack **stack_a, t_stack **stack_b)
 	data->blk_group = 1;
 	data->size = ft_stack_size(stack_a);
 	if (data->size <= 100)
-		data->blk = 4;
+		data->blk = 3;
 	else
-		data->blk = 8;
+		data->blk = 9;
 	data->blksize = (data->size / data->blk) / 2;
 	divide_stack(stack_a, stack_b, data);
 	push_back(stack_a, stack_b, ft_stack_size(stack_b));
