@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_array_char_free.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 23:42:14 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/18 21:23:08 by kinamura         ###   ########.fr       */
+/*   Created: 2024/10/18 21:21:42 by kinamura          #+#    #+#             */
+/*   Updated: 2024/10/18 21:21:43 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_array.h"
 
-int	main(int argc, char **argv)
+void	ft_array_char_free(char **str)
 {
-	int	*array;
-	int	status;
+	int	index;
 
-	if (argc < 2)
-		return (EXIT_FAILURE);
-	array = ft_argv_input_array(argc, argv);
-	if (!array)
+	index = 0;
+	while (str[index])
 	{
-		ft_dprintf(STDERR_FILENO, "Error\n");
-		return (EXIT_FAILURE);
+		if (str[index])
+			free(str[index]);
+		index++;
 	}
-	status = ft_push_swap(&array);
-	return (status);
+	free(str);
 }

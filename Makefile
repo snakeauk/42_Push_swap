@@ -19,7 +19,8 @@ STACK_DIR	=	$(SRCS_DIR)/ft_stack
 MAN_SRCS	=	$(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/push_swap.c
 
-ARRAY_SRCS	=	$(ARY_DIR)/ft_argv_input_array.c \
+ARRAY_SRCS	=	$(ARY_DIR)/ft_array_char_free.c \
+				$(ARY_DIR)/ft_argv_input_array.c \
 				$(ARY_DIR)/ft_array_input.c \
 				$(ARY_DIR)/ft_array_input_stack.c \
 				$(ARY_DIR)/ft_array_size.c \

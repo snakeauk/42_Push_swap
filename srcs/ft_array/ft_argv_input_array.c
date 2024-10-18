@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 00:46:06 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/14 16:54:24 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/18 21:21:16 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	*ft_argv_input_array(int argc, char **argv)
 		if (!split)
 			return (NULL);
 		array = ft_array_input(0, ft_array_char_size(split), split);
+		ft_array_char_free(split);
 	}
 	else
 		array = ft_array_input(1, argc, argv);
