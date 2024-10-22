@@ -6,13 +6,13 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:42:41 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/21 14:53:03 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/22 22:58:21 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_array.h"
 
-int	*ft_array_input(int start, int end, char **str_array)
+int	*ft_array_input_array(int start, int end, char **str_array)
 {
 	int	*array;
 	int	size;

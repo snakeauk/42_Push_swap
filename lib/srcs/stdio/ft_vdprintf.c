@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 00:25:32 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/21 14:33:07 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/22 22:05:03 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_vdprintf(int fd, const char *format, va_list ap)
 		if (*format == '%')
 		{
 			format++;
-			w_ret = ft_printf_switch(format, &ap, fd);
+			w_ret = ft_printf_switch(format, ap, fd);
 			if (w_ret < 0)
 				return (-1);
 			ret += w_ret;

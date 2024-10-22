@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 00:25:40 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/21 14:32:25 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/22 22:04:47 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_ulltoa_base(unsigned long long unum, char *base);
 size_t	ft_uisize(unsigned int n, int base);
 size_t	ft_isize(int num, int base);
 size_t	ft_ullsize(unsigned long long unum, char *base);
-int		ft_printf_switch(const char *format, va_list *ap, int fd);
+int		ft_printf_switch(const char *format, va_list ap, int fd);
 int		ft_vdprintf(int fd, const char *format, va_list ap);
 int		ft_vprintf(const char *format, va_list ap);
 int		ft_dprintf(int fd, const char *format, ...);
