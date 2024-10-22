@@ -39,7 +39,8 @@ SORT_SRCS	=	$(SORT_DIR)/ft_sort.c \
 				$(SORT_DIR)/ft_sort_less_3.c \
 				$(SORT_DIR)/ft_sort_less_6.c
 
-STACK_SRCS	=	$(STACK_DIR)/ft_stack_add_back.c \
+STACK_SRCS	=	$(STACK_DIR)/ft_stack_argv_input.c \
+				$(STACK_DIR)/ft_stack_add_back.c \
 				$(STACK_DIR)/ft_stack_create.c \
 				$(STACK_DIR)/ft_stack_isnear.c \
 				$(STACK_DIR)/ft_stack_last.c \

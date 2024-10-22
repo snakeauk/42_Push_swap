@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:42:41 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/14 13:57:09 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:53:03 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	*ft_array_input(int start, int end, char **str_array)
 	{
 		if (!ft_isint(str_array[start]))
 		{
+			ft_dprintf(STDERR_FILENO, "Error\n");
 			free(array);
 			return (NULL);
 		}

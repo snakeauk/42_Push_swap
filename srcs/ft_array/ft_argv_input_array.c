@@ -6,24 +6,24 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 00:46:06 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/18 21:21:16 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/21 20:19:41 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_array.h"
 
-static int	ft_input_check(int **array)
+static int	ft_input_check(int *array)
 {
 	size_t	index;
 	size_t	check;
 
 	index = 0;
-	while ((*array)[index])
+	while (array[index])
 	{
 		check = index + 1;
-		while ((*array)[check])
+		while (array[check])
 		{
-			if ((*array)[check] == (*array)[index])
+			if (array[check] == array[index])
 				return (0);
 			check++;
 		}
@@ -41,7 +41,10 @@ int	*ft_argv_input_array(int argc, char **argv)
 	{
 		split = ft_split(argv[1], ' ');
 		if (!split)
+		{
+			ft_dprintf(STDERR_FILENO, "Error\n");
 			return (NULL);
+		}
 		array = ft_array_input(0, ft_array_char_size(split), split);
 		ft_array_char_free(split);
 	}
@@ -49,9 +52,10 @@ int	*ft_argv_input_array(int argc, char **argv)
 		array = ft_array_input(1, argc, argv);
 	if (!array)
 		return (NULL);
-	if (!ft_input_check(&array))
+	if (!ft_input_check(array))
 	{
 		free(array);
+		ft_dprintf(STDERR_FILENO, "Error\n");
 		return (NULL);
 	}
 	return (array);

@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:36:10 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:40:01 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:09:37 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@
 # include <limits.h>
 
 int	main(int argc, char **argv);
-int	ft_push_swap(int **array);
+int	ft_push_swap(t_stack **stack);
 
 #endif

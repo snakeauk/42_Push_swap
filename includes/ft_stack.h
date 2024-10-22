@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:36:14 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:40:24 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:11:20 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdbool.h>
 # include <stdlib.h>
 
+t_stack	*ft_stack_argv_input(int argc, char **argv);
 bool	ft_stack_isnear(t_stack **stack, int rank);
 int		ft_stack_issort(t_stack **stack);
 int		ft_stack_issort_rev(t_stack **stack);
