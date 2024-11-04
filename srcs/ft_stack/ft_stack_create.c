@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:44:28 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/21 20:24:05 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/23 23:22:44 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static void	ft_stack_add_rank(t_stack **stack)
 	array = ft_array_input_stack(stack);
 	if (!array)
 		return ;
-	ft_array_sort(array);
+	ft_array_sort(array, ft_stack_size(stack));
 	node = (*stack);
 	while (node)
 	{
 		index = 0;
-		while (array[index])
+		while (index < ft_stack_size(stack))
 		{
 			if (array[index] == node->content)
 			{

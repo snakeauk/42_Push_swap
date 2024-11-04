@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:45:35 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/14 17:18:58 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/24 03:22:11 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_stack_size(t_stack **stack)
 	int		count;
 	t_stack	*node;
 
-	if (!stack)
+	if (!stack || !(*stack))
 		return (0);
 	count = 0;
 	node = (*stack);

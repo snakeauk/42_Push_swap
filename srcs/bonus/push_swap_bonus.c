@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:42:21 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/14 16:39:56 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/24 03:44:25 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,33 @@ static int	execute_command(t_stack **stack_a, t_stack **stack_b)
 	int		ret;
 	char	*line;
 
-	while (1)
+	while (get_next_line(STDIN_FILENO, &line))
 	{
-		line = get_next_line(STDIN_FILENO);
-		if (!line)
-			break ;
 		if (ft_iscommand(line))
 		{
 			ret = ft_command_execute(line, stack_a, stack_b);
 			if (ret < 0)
 				break ;
-			if (ft_stack_issort(stack_a) && ft_stack_size(stack_b) == 0)
-			{
-				free(line);
-				return (EXIT_SUCCESS);
-			}
 		}
 		else
-			break ;
+		{
+			free(line);
+			return (-1);
+		}
 		free(line);
 	}
-	free(line);
+	if (ft_stack_issort(stack_a) && ft_stack_size(stack_b) == 0)
+		return (EXIT_SUCCESS);
 	return (EXIT_FAILURE);
 }
 
-static int	push_swap_bonus(int **array)
+static int	push_swap_bonus(t_stack **stack)
 {
 	int		status;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	stack_a = ft_stack_create(array);
-	if (!stack_a)
-		return (EXIT_FAILURE);
-	if (ft_stack_issort(&stack_a))
-		return (EXIT_SUCCESS);
+	stack_a = (*stack);
 	stack_b = NULL;
 	status = execute_command(&stack_a, &stack_b);
 	if (ft_stack_size(&stack_a) != 0)
@@ -63,19 +55,23 @@ static int	push_swap_bonus(int **array)
 
 int	main(int argc, char **argv)
 {
-	int	status;
-	int	*array;
+	int		status;
+	t_stack	*stack;
 
 	if (argc < 2)
 		return (EXIT_FAILURE);
-	array = ft_argv_input_array(argc, argv);
-	if (!array)
+	stack = ft_stack_argv_input(argc, argv);
+	if (!stack)
 		return (EXIT_FAILURE);
-	status = push_swap_bonus(&array);
+	status = push_swap_bonus(&stack);
 	if (status == EXIT_SUCCESS)
 		ft_printf("OK\n");
-	else
+	else if (status == EXIT_FAILURE)
 		ft_printf("KO\n");
-	free(array);
+	else
+	{
+		ft_dprintf(STDERR_FILENO, "Error\n");
+		status = EXIT_FAILURE;
+	}
 	return (status);
 }

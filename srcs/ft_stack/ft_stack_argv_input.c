@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:17:12 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/22 19:17:14 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/24 03:09:14 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,34 @@ static int	ft_input_check(t_stack **stack, long num)
 	return (1);
 }
 
+static void	ft_stack_add_rank(t_stack **stack)
+{
+	t_stack	*node;
+	int		*array;
+	int		index;
+
+	array = ft_array_input_stack(stack);
+	if (!array)
+		return ;
+	ft_array_sort(array, ft_stack_size(stack));
+	node = (*stack);
+	while (node)
+	{
+		index = 0;
+		while (index < ft_stack_size(stack))
+		{
+			if (array[index] == node->content)
+			{
+				node->rank = index + 1;
+				break ;
+			}
+			index++;
+		}
+		node = node->next;
+	}
+	free(array);
+}
+
 static	t_stack	*ft_stack_input(int start, int end, char **str_array)
 {
 	long	num;
@@ -39,8 +67,7 @@ static	t_stack	*ft_stack_input(int start, int end, char **str_array)
 	{
 		if (!ft_isint(str_array[start]))
 		{
-			if (stack)
-				ft_stack_free(&stack);
+			ft_stack_free(&stack);
 			return (NULL);
 		}
 		num = ft_atol(str_array[start]);
@@ -52,6 +79,7 @@ static	t_stack	*ft_stack_input(int start, int end, char **str_array)
 		ft_stack_add_back(&stack, ft_stack_new(num));
 		start++;
 	}
+	ft_stack_add_rank(&stack);
 	return (stack);
 }
 

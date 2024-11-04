@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:45:10 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:45:11 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/23 20:13:41 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*ft_stack_new(int content)
 	if (!new)
 		return (NULL);
 	new->content = content;
+	new->rank = 0;
 	new->next = NULL;
 	return (new);
 }

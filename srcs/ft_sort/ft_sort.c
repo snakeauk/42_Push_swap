@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:44:15 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/22 18:59:00 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/23 23:28:20 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_sort(t_stack **stack)
 
 	status = EXIT_SUCCESS;
 	if (ft_stack_issort(stack))
-		return (status);
+		return (ft_stack_free(stack), status);
 	stack_a = (*stack);
 	stack_b = NULL;
 	size = ft_stack_size(&stack_a);
@@ -34,6 +34,7 @@ int	ft_sort(t_stack **stack)
 	else
 		status = sort_large(&stack_a, &stack_b);
 	ft_command_print(0);
+	ft_stack_free(&stack_a);
 	ft_stack_free(&stack_b);
 	return (status);
 }

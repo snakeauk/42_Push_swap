@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:45:18 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:45:19 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:36:27 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_stack_print(t_stack **stack)
 	while (node)
 	{
 		ft_printf("%d: ", index);
-		ft_printf("%d\n", node->content);
+		ft_printf("content:%d,	rank:%d\n", node->content, node->rank);
 		node = node->next;
 		index++;
 	}

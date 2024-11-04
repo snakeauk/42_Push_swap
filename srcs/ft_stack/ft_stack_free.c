@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 23:44:43 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/09 23:44:44 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:55:31 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ void	ft_stack_free(t_stack **stack)
 {
 	t_stack	*next;
 
-	if (!stack)
+	if (!stack || !*stack)
 		return ;
 	while (*stack)
 	{
 		next = (*stack)->next;
-		if (stack)
-			free(*stack);
+		free(*stack);
 		*stack = next;
 	}
 	*stack = NULL;
