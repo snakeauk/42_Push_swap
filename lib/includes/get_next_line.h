@@ -6,7 +6,7 @@
 /*   By: kinamura <kinamura@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 11:26:46 by kinamura          #+#    #+#             */
-/*   Updated: 2024/10/24 01:00:34 by kinamura         ###   ########.fr       */
+/*   Updated: 2024/10/26 06:31:47 by kinamura         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 #  define BUFFER_SIZE 256
 # endif
 
-int		get_next_line(int fd, char **line);
-char	*ft_read_file(int fd, char *str);
-char	*ft_next_str(char *str);
-char	*ft_get_line(char *str);
-char	*ft_memadd(char *s1, const char *s2, size_t size);
+size_t	get_next_line(int fd, char **line);
 
 #endif
