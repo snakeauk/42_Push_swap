@@ -1,4 +1,5 @@
 NAME		=	push_swap
+BONUS	=	checker
 
 CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
@@ -61,7 +62,6 @@ STACK_SRCS	=	$(STACK_DIR)/ft_stack_argv_input.c \
 SRCS		=	$(MAN_SRCS) $(ARRAY_SRCS) $(CMD_SRCS) $(SORT_SRCS) $(STACK_SRCS)
 OBJS		=	$(SRCS:.c=.o)
 
-BONUS_NAME	=	checker
 BONUS_DIR	=	$(SRCS_DIR)/bonus
 BONUS_SRCS	=	$(BONUS_DIR)/push_swap_bonus.c $(ARRAY_SRCS) $(CMD_SRCS) $(SORT_SRCS) $(STACK_SRCS)
 BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
@@ -99,16 +99,16 @@ fclean:
 	@$(MAKE) clean -C $(LIB_DIR)
 	@$(RM) $(OBJS) $(BONUS_OBJS)
 	@$(MAKE) fclean -C $(LIB_DIR)
-	@$(RM) $(NAME) $(BONUS_NAME)
+	@$(RM) $(NAME) $(BONUS)
 	@echo "$(BOLD)$(LIGHT_BLUE)ALL Cleaning $(NAME) Complete!$(RESET)"
 
 bonus: $(BONUS)
 
 $(BONUS): $(BONUS_OBJS) $(OBJS)
 	@$(MAKE) -C $(LIB_DIR)
-	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS_NAME)...$(RESET)"
-	@$(CC) $(CFLAGS) $(INCLUDES) $(BONUS_OBJS) $(LIB_DIR)/$(LIB) -o $(BONUS_NAME)
-	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS_NAME) Complete!$(RESET)"
+	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS)...$(RESET)"
+	@$(CC) $(CFLAGS) $(INCLUDES) $(BONUS_OBJS) $(LIB_DIR)/$(LIB) -o $(BONUS)
+	@echo "$(BOLD)$(LIGHT_BLUE)Compile $(BONUS) Complete!$(RESET)"
 
 re: fclean all
 
